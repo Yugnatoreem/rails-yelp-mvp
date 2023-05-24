@@ -1,0 +1,17 @@
+<div class="d-flex justify-content-between m-3">
+  <div class="border p-2 border.ra rounded bg-secondary-subtle"><h1>Restaurant near you</h1></div>
+</div>
+
+<div class="m-3">
+  <% @restaurants.each do |restaurant| %>
+    <%= link_to restaurant_path(restaurant) do %>
+      <div class="card">
+        <div class="card-title">
+          <%= restaurant.name %>
+          <%= link_to "Delete", restaurant_path(restaurant), data: { turbo_method: :delete }, class: "delete-btn none" %>
+        </div>
+        <%= restaurant.address %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
